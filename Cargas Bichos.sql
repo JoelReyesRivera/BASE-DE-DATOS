@@ -297,7 +297,7 @@ VALUES(100,'Ronaldo',1,24)
 SELECT * FROM BICHO
 --USUARIO--
 INSERT INTO USUARIO
-VALUES(1,'JoelReyes','Joel','Reyes',1)
+VALUES(1,'JoelReyes','Joel','Reyes',1)	
 INSERT INTO USUARIO
 VALUES(2,'JoseReyes','Jose','Reyes',1)
 INSERT INTO USUARIO
