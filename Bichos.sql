@@ -20,6 +20,7 @@ CREATE TABLE [BICHO]
 	[Nombre] varchar(50) NOT NULL,
 	[Especie] smallint NOT NULL,
 	[Experiencia] smallint NOT NULL
+
 )
 ;
 
@@ -123,14 +124,6 @@ CREATE TABLE [USUARIO]
 )
 ;
 
-CREATE TABLE [USUARIO-BICHO]
-(
-	[Id-Usuario] int NOT NULL,
-	[Id-Bicho] int NOT NULL,
-	[NivelSalud] smallint NOT NULL,
-	[Experiencia] int NOT NULL
-)
-;
 
 CREATE TABLE [USUARIO-BICHO-COMBATE]
 (
