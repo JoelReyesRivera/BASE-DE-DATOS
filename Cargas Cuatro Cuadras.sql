@@ -21,7 +21,7 @@ Values('Parque'),
 ('Kareoke Bar'),
 ('Restaurant'),
 ('Estadio'),
-('Iglesia'),
+('Puerto'),
 ('Cine'),
 ('Tienda De Música'),
 ('Cabina Fotos'),
@@ -32,7 +32,7 @@ VALUES (80,90,'Riberas',1),
 (-52,-35,'El Grito',2),
 (35,65,'Hambugería',3),
 (-1,82,'Banorte',4),
-(-10,50,'Santo Niño',5),
+(-10,50,'Altata',5),
 (43,32,'Cinepolis',6),
 (49,42,'Music Store',7),
 (36,82,'Photo Store',8),
@@ -139,7 +139,7 @@ VALUES (5,5,'Malo','Sep 24 2015 3:2 AM',1),
 (2,10,'Muy malo','Oct 26 2017 3:9 AM',0),
 (2,5,'Malo','Sep 9 2016 0:18 AM',1),
 (2,10,'Regular','Aug 26 2015 5:58 AM',2)
-INSERT INTO ETIQUETA
+INSERT INTO INSIGNIA
 VALUES ('Fotogenico'),
 ('Navegante'),
 ('La Voz'),
@@ -147,3 +147,44 @@ VALUES ('Fotogenico'),
 ('Cinéfilo'),
 ('Catador De Comida'),
 ('Trabajador')
+INSERT INTO ETIQUETA
+VALUES	('PhotoBoot'),
+('Canoa')
+INSERT INTO [LUGAR-ETIQUETA]
+VALUES (8,1),
+(5,2)
+INSERT INTO [ESTATUS-SOLICITUD]
+VALUES ('Aceptada'),
+('Rechazada'),
+('En espera')
+INSERT INTO [USUARIO-SOLICITUD-USUARIO]
+VALUES (1,2,1),
+(3,4,1),
+(5,6,1),
+(7,8,1),
+(9,10,1),
+(9,3,2),
+(7,5,2),
+(4,7,2),
+(6,3,2),
+(5,6,3)
+INSERT INTO [USUARIO-AMIGO-USUARIO]
+VALUES (1,2),
+(3,4),
+(5,6),
+(7,8),
+(9,10)
+INSERT INTO [USUARIO-INTERESES]
+VALUES (1,'Futbol'),
+(2,'Basquetbol'),
+(3,'Beisbol'),
+(4,'Softbol'),
+(5,'Natación'),
+(6,'MMA'),
+(7,'Box'),
+(8,'Futbol'),
+(9,'Box'),
+(10,'Beisbol')
+
+
+
