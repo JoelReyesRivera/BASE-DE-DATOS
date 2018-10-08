@@ -1,7 +1,7 @@
 --TABLAS--
 CREATE TABLE [CATEGORÍA]
 (
-	[ID] smallint NOT NULL,
+	[ID] smallint IDENTITY(1,1) NOT NULL,
 	[Descripción] varchar(50) NOT NULL
 )
 ;
@@ -18,38 +18,38 @@ CREATE TABLE [CHECK-IN]
 
 CREATE TABLE [CIUDAD]
 (
-	[ID] smallint NOT NULL,
+	[ID] smallint IDENTITY(1,1) NOT NULL,
 	[Descripción] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ESTATUS-SOLICITUD]
 (
-	[ID] tinyint NOT NULL,
+	[ID] tinyint IDENTITY(1,1) NOT NULL,
 	[Descripción] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ETIQUETA]
 (
-	[ID] smallint NOT NULL,
+	[ID] smallint IDENTITY(1,1) NOT NULL,
 	[Descripción] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [INSIGNIA]
 (
-	[ID] smallint NOT NULL,
+	[ID] smallint IDENTITY(1,1) NOT NULL,
 	[Descripción] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [LUGAR]
 (
-	[ID] int NOT NULL,
+	[ID] int IDENTITY(1,1) NOT NULL,
 	[Latitud] smallint NOT NULL,
 	[Longitud] smallint NOT NULL,
-	[Descripción] smallint NOT NULL,
+	[Descripción] varchar (50) NOT NULL,
 	[ID-Categoría] smallint NOT NULL
 )
 ;
@@ -63,7 +63,7 @@ CREATE TABLE [LUGAR-ETIQUETA]
 
 CREATE TABLE [USUARIO]
 (
-	[ID] int NOT NULL,
+	[ID] int IDENTITY(1,1) NOT NULL,
 	[UserName] varchar(50) NOT NULL,
 	[Nombre] varchar(50) NOT NULL,
 	[Genero] bit NOT NULL,
