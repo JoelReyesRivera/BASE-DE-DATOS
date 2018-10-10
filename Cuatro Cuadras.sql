@@ -40,7 +40,8 @@ CREATE TABLE [ETIQUETA]
 CREATE TABLE [INSIGNIA]
 (
 	[ID] smallint IDENTITY(1,1) NOT NULL,
-	[Descripción] varchar(50) NOT NULL
+	[Nombre] varchar(50) NOT NULL,
+	[Descripción] varchar(100) NOT NULL
 )
 ;
 

@@ -37,7 +37,20 @@ VALUES (80,90,'Riberas',1),
 (49,42,'Music Store',7),
 (36,82,'Photo Store',8),
 (-5,64,'Oficina Coppel',9),
-(36,1,'C & A',10)
+(4,52,'Photo Shop',8),
+(65,12,'Photo Rally',8),
+(34,52,'Mazatlán Malecón',5),
+(-6,90,'Vallarta Malecón',5),
+(65,90,'Sushi Factory',3),
+(36,30,'Farm Burguer',3),
+(-5,14,'La café',3),
+(-5,-50,'Carls jr',3),
+(36,25,'Burguer King',3),
+(55,15,'Super salads',3),
+(73,36,'Kiwi',3),
+(31,38,'Salads Imbox',3),
+(90,13,'Maroma',3)
+
 INSERT INTO [CHECK-IN]
 VALUES (5,5,'Malo','Sep 24 2015 3:2 AM',1),
 (5,4,'Muy Bueno','Aug 10 2015 11:41 AM',4),
@@ -140,13 +153,13 @@ VALUES (5,5,'Malo','Sep 24 2015 3:2 AM',1),
 (2,5,'Malo','Sep 9 2016 0:18 AM',1),
 (2,10,'Regular','Aug 26 2015 5:58 AM',2)
 INSERT INTO INSIGNIA
-VALUES ('Fotogenico'),
-('Navegante'),
-('La Voz'),
-('Melomano'),
-('Cinéfilo'),
-('Catador De Comida'),
-('Trabajador')
+VALUES ('Fotogenico','Hacer check-in en 3 lugares diferentes con etiqueta "photobot"'),
+('Navegante','Hacer check-in en 3 lugares diferentes con la etiqueta "canoa"'),
+('La Voz','Hacer check-in en un mes en lugares de categoría "karaoke bar"(no necesariamente diferentes)'),
+('Melomano','Hacer 5 check-ins en lugares de categoría "Tienda de Música"'),
+('Cinéfilo','Hacer 15 check-ins en cines'),
+('Catador De Comida','Hacer 10 check-ins en restaurantes diferentes'),
+('Trabajador','Hacer 200 check-ins en lugares de la categoría "Oficinas"')
 INSERT INTO ETIQUETA
 VALUES	('PhotoBoot'),
 ('Canoa')
@@ -173,7 +186,12 @@ VALUES (1,2),
 (3,4),
 (5,6),
 (7,8),
-(9,10)
+(9,10),
+(2,1),
+(4,3),
+(6,5),
+(8,6),
+(10,9)
 INSERT INTO [USUARIO-INTERESES]
 VALUES (1,'Futbol'),
 (2,'Basquetbol'),
@@ -185,6 +203,8 @@ VALUES (1,'Futbol'),
 (8,'Futbol'),
 (9,'Box'),
 (10,'Beisbol')
+
+
 
 
 
