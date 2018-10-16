@@ -1,10 +1,23 @@
 --CARGAS CUATRO CUADRAS--
+
+use CuatroCuadrasBD
+
 INSERT INTO CIUDAD
 VALUES ('Culiacán'),
 ('Navolato'),
 ('Mochis'),
 ('Mazatlán'),
-('Cosalá')
+('Cosalá'),
+('Parral'),
+('CDMX'),
+('Veracruz'),
+('Acapulco'),
+('Queretaro')
+
+
+ select * from CIUDAD
+
+
 INSERT INTO USUARIO
 VALUES ('Joselito','Joel',1,'jreyes1999@hotmail.com','joel08',1),
 ('BryanReRi','Bryan',1,'breyes2003@hotmail.com','bryan09',2),
@@ -16,7 +29,11 @@ VALUES ('Joselito','Joel',1,'jreyes1999@hotmail.com','joel08',1),
 ('KevinG','Kevin',1,'parranoel@hotmail.com','kevinP',3),
 ('CrazyJCF','Jorge',0,'jorfeCfelix@hotmail.com','jorgeChivas',4),
 ('Wonguito','Ricardo',0,'ricardowong@hotmail.com','arjona27',5)
-INSERT INTO CATEGORÍA
+
+ select * from USUARIO
+
+
+INSERT INTO CATEGORIA
 Values('Parque'),
 ('Kareoke Bar'),
 ('Restaurant'),
@@ -27,6 +44,9 @@ Values('Parque'),
 ('Cabina Fotos'),
 ('Oficina'),
 ('Boutique')
+
+
+
 INSERT INTO LUGAR 
 VALUES (80,90,'Riberas',1),
 (-52,-35,'El Grito',2),
@@ -50,7 +70,14 @@ VALUES (80,90,'Riberas',1),
 (55,15,'Super salads',3),
 (73,36,'Kiwi',3),
 (31,38,'Salads Imbox',3),
-(90,13,'Maroma',3)
+(90,13,'Maroma',3),
+(87, 45,'MixUp',7),
+(-6,70,'Las ermoxxas',10),
+(80,-45,'Paeque 87',1)
+
+
+
+
 
 INSERT INTO [CHECK-IN]
 VALUES(8,19,'Muy malo','Apr 19 2016 3:12 AM',0),
@@ -262,16 +289,25 @@ VALUES ('Fotogenico','Hacer check-in en 3 lugares diferentes con etiqueta "photo
 ('Cinéfilo','Hacer 15 check-ins en cines'),
 ('Catador De Comida','Hacer 10 check-ins en restaurantes diferentes'),
 ('Trabajador','Hacer 200 check-ins en lugares de la categoría "Oficinas"')
+
+
 INSERT INTO ETIQUETA
 VALUES	('PhotoBoot'),
 ('Canoa')
+
+
+
 INSERT INTO [LUGAR-ETIQUETA]
 VALUES (8,1),
 (5,2)
+
+
 INSERT INTO [ESTATUS-SOLICITUD]
 VALUES ('Aceptada'),
 ('Rechazada'),
 ('En espera')
+
+
 INSERT INTO [USUARIO-SOLICITUD-USUARIO]
 VALUES (1,2,1),
 (3,4,1),
@@ -283,6 +319,8 @@ VALUES (1,2,1),
 (4,7,2),
 (6,3,2),
 (5,6,3)
+
+
 INSERT INTO [USUARIO-AMIGO-USUARIO]
 VALUES (1,2),
 (3,4),
@@ -294,6 +332,8 @@ VALUES (1,2),
 (6,5),
 (8,6),
 (10,9)
+
+
 INSERT INTO [USUARIO-INTERESES]
 VALUES (1,'Futbol'),
 (2,'Basquetbol'),
