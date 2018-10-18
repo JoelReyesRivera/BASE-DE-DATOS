@@ -1,8 +1,22 @@
+create database CuatroCuadrasBD
+use CuatroCuadrasBD
+
+---drop database CuatroCuadrasBD
+--use cacas
 --TABLAS--
-CREATE TABLE [CATEGORÍA]
+
+
+SELECT
+  *
+FROM
+  CuatroCuadrasBD.INFORMATION_SCHEMA.TABLES;
+GO
+
+
+CREATE TABLE CATEGORIA
 (
 	[ID] smallint IDENTITY(1,1) NOT NULL,
-	[Descripción] varchar(50) NOT NULL
+	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
@@ -12,28 +26,28 @@ CREATE TABLE [CHECK-IN]
 	[ID-Lugar] int NOT NULL,
 	[Comentario] varchar(50),
 	[Fecha y Hora] datetime NOT NULL,
-	[Valoración] tinyint
+	[Valoracion] tinyint
 )
-;
+ ;
 
 CREATE TABLE [CIUDAD]
 (
 	[ID] smallint IDENTITY(1,1) NOT NULL,
-	[Descripción] varchar(50) NOT NULL
+	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ESTATUS-SOLICITUD]
 (
 	[ID] tinyint IDENTITY(1,1) NOT NULL,
-	[Descripción] varchar(50) NOT NULL
+	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ETIQUETA]
 (
 	[ID] smallint IDENTITY(1,1) NOT NULL,
-	[Descripción] varchar(50) NOT NULL
+	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
@@ -41,7 +55,7 @@ CREATE TABLE [INSIGNIA]
 (
 	[ID] smallint IDENTITY(1,1) NOT NULL,
 	[Nombre] varchar(50) NOT NULL,
-	[Descripción] varchar(100) NOT NULL
+	[Descripcion] varchar(100) NOT NULL
 )
 ;
 
@@ -50,8 +64,8 @@ CREATE TABLE [LUGAR]
 	[ID] int IDENTITY(1,1) NOT NULL,
 	[Latitud] smallint NOT NULL,
 	[Longitud] smallint NOT NULL,
-	[Descripción] varchar (50) NOT NULL,
-	[ID-Categoría] smallint NOT NULL
+	[Descripcion] varchar (50) NOT NULL,
+	[ID-Categoria] smallint NOT NULL
 )
 ;
 
@@ -69,7 +83,7 @@ CREATE TABLE [USUARIO]
 	[Nombre] varchar(50) NOT NULL,
 	[Genero] bit NOT NULL,
 	[Email] varchar(50) NOT NULL,
-	[Contraseña] varchar(50) NOT NULL,
+	[Contrasena] varchar(50) NOT NULL,
 	[Id-Ciudad] smallint NOT NULL
 )
 ;
@@ -92,7 +106,7 @@ CREATE TABLE [USUARIO-INSIGNIA]
 CREATE TABLE [USUARIO-INTERESES]
 (
 	[ID-Usuario] int NOT NULL,
-	[Interés] varchar(50) NOT NULL
+	[Interes] varchar(50) NOT NULL
 )
 ;
 
@@ -104,8 +118,8 @@ CREATE TABLE [USUARIO-SOLICITUD-USUARIO]
 )
 ;
 --RESTRICCIONES E INDICES--
-ALTER TABLE [CATEGORÍA] 
- ADD CONSTRAINT [PK_CATEGORÍA]
+ALTER TABLE [CATEGORIA] 
+ ADD CONSTRAINT [PK_CATEGORIA]
 	PRIMARY KEY CLUSTERED ([ID])
 ;
 
@@ -143,8 +157,8 @@ ALTER TABLE [INSIGNIA]
 	PRIMARY KEY CLUSTERED ([ID])
 ;
 
-CREATE INDEX [IXFK_LUGAR_CATEGORÍA] 
- ON [LUGAR] ([ID-Categoría] ASC)
+CREATE INDEX [IXFK_LUGAR_CATEGORIA] 
+ ON [LUGAR] ([ID-Categoria] ASC)
 ;
 
 ALTER TABLE [LUGAR] 
@@ -202,7 +216,7 @@ CREATE INDEX [IXFK_USUARIO-INTERESES_USUARIO]
 ;
 
 ALTER TABLE [USUARIO-INTERESES] 
- ADD CONSTRAINT [Unique-Usuario-Interes] UNIQUE NONCLUSTERED ([ID-Usuario],[Interés])
+ ADD CONSTRAINT [Unique-Usuario-Interes] UNIQUE NONCLUSTERED ([ID-Usuario],[Interes])
 ;
 
 CREATE INDEX [IXFK_USUARIO-SOLICITUD-USUARIO_ESTATUS-SOLICITUD] 
@@ -229,8 +243,8 @@ ALTER TABLE [CHECK-IN] ADD CONSTRAINT [FK_CHECK-IN_USUARIO]
 	FOREIGN KEY ([ID-Usuario]) REFERENCES [USUARIO] ([ID]) ON DELETE No Action ON UPDATE No Action
 ;
 
-ALTER TABLE [LUGAR] ADD CONSTRAINT [FK_LUGAR_CATEGORÍA]
-	FOREIGN KEY ([ID-Categoría]) REFERENCES [CATEGORÍA] ([ID]) ON DELETE No Action ON UPDATE No Action
+ALTER TABLE [LUGAR] ADD CONSTRAINT [FK_LUGAR_CATEGORIA]
+	FOREIGN KEY ([ID-Categoria]) REFERENCES [CATEGORIA] ([ID]) ON DELETE No Action ON UPDATE No Action
 ;
 
 ALTER TABLE [LUGAR-ETIQUETA] ADD CONSTRAINT [FK_LUGAR-ETIQUETA_ETIQUETA]
