@@ -1,13 +1,13 @@
---CARGAS CUATRO CUADRAS--
+-CARGAS CUATRO CUADRAS--
 
 use CuatroCuadrasBD
 
 INSERT INTO CIUDAD
-VALUES ('Culiacán'),
+VALUES ('CuliacÃ¡n'),
 ('Navolato'),
 ('Mochis'),
-('Mazatlán'),
-('Cosalá'),
+('MazatlÃ¡n'),
+('CosalÃ¡'),
 ('Parral'),
 ('CDMX'),
 ('Veracruz'),
@@ -19,16 +19,16 @@ VALUES ('Culiacán'),
 
 
 INSERT INTO USUARIO
-VALUES ('Joselito','Joel',1,'jreyes1999@hotmail.com','joel08',1),
-('BryanReRi','Bryan',1,'breyes2003@hotmail.com','bryan09',2),
-('KariRe','Karime',0,'karireyes@hotmail.com','kari07',3),
-('JuanPe','Juan',1,'juanperes@hotmail.com','jaunpa',4),
-('Bris','Briceida',0,'brisjmb@hotmail.com','bris08',5),
-('KarelyCin','Karely',0,'karelymb@hotmail.com','karely15',1),
-('AméricaDen','América',0,'americamb@hotmail.com','america28',2),
-('KevinG','Kevin',1,'parranoel@hotmail.com','kevinP',3),
-('CrazyJCF','Jorge',0,'jorfeCfelix@hotmail.com','jorgeChivas',4),
-('Wonguito','Ricardo',0,'ricardowong@hotmail.com','arjona27',5)
+VALUES ('Joselito','Joel',1, 19, 'jreyes1999@hotmail.com','joel08',1),
+('BryanReRi','Bryan',1,18,'breyes2003@hotmail.com','bryan09',2),
+('KariRe','Karime',0,17,'karireyes@hotmail.com','kari07',3),
+('JuanPe','Juan',1,19,'juanperes@hotmail.com','jaunpa',4),
+('Bris','Briceida',0,25,'brisjmb@hotmail.com','bris08',5),
+('KarelyCin','Karely',0,26,'karelymb@hotmail.com','karely15',1),
+('AmÃ©ricaDen','AmÃ©rica',0,16,'americamb@hotmail.com','america28',2),
+('KevinG','Kevin',1, 18,'parranoel@hotmail.com','kevinP',3),
+('CrazyJCF','Jorge',0,19,'jorfeCfelix@hotmail.com','jorgeChivas',4),
+('Wonguito','Ricardo',0, 22,'ricardowong@hotmail.com','arjona27',5)
 
  select * from USUARIO
 
@@ -40,7 +40,7 @@ Values('Parque'),
 ('Estadio'),
 ('Puerto'),
 ('Cine'),
-('Tienda De Música'),
+('Tienda De MÃºsica'),
 ('Cabina Fotos'),
 ('Oficina'),
 ('Boutique')
@@ -50,7 +50,7 @@ Values('Parque'),
 INSERT INTO LUGAR 
 VALUES (80,90,'Riberas',1),
 (-52,-35,'El Grito',2),
-(35,65,'Hambugería',3),
+(35,65,'HambugerÃ­a',3),
 (-1,82,'Banorte',4),
 (-10,50,'Altata',5),
 (43,32,'Cinepolis',6),
@@ -60,11 +60,11 @@ VALUES (80,90,'Riberas',1),
 (-15,35,'C & A',10),
 (4,52,'Photo Shop',8),
 (65,12,'Photo Rally',8),
-(34,52,'Mazatlán Malecón',5),
-(-6,90,'Vallarta Malecón',5),
+(34,52,'MazatlÃ¡n MalecÃ³n',5),
+(-6,90,'Vallarta MalecÃ³n',5),
 (65,90,'Sushi Factory',3),
 (36,30,'Farm Burguer',3),
-(-5,14,'La café',3),
+(-5,14,'La cafÃ©',3),
 (-5,-50,'Carls jr',3),
 (36,25,'Burguer King',3),
 (55,15,'Super salads',3),
@@ -284,11 +284,11 @@ VALUES(8,19,'Muy malo','Apr 19 2016 3:12 AM',0),
 INSERT INTO INSIGNIA
 VALUES ('Fotogenico','Hacer check-in en 3 lugares diferentes con etiqueta "photobot"'),
 ('Navegante','Hacer check-in en 3 lugares diferentes con la etiqueta "canoa"'),
-('La Voz','Hacer check-in en un mes en lugares de categoría "karaoke bar"(no necesariamente diferentes)'),
-('Melomano','Hacer 5 check-ins en lugares de categoría "Tienda de Música"'),
-('Cinéfilo','Hacer 15 check-ins en cines'),
+('La Voz','Hacer check-in en un mes en lugares de categorÃ­a "karaoke bar"(no necesariamente diferentes)'),
+('Melomano','Hacer 5 check-ins en lugares de categorÃ­a "Tienda de MÃºsica"'),
+('CinÃ©filo','Hacer 15 check-ins en cines'),
 ('Catador De Comida','Hacer 10 check-ins en restaurantes diferentes'),
-('Trabajador','Hacer 200 check-ins en lugares de la categoría "Oficinas"')
+('Trabajador','Hacer 200 check-ins en lugares de la categorÃ­a "Oficinas"')
 
 
 INSERT INTO ETIQUETA
@@ -339,7 +339,7 @@ VALUES (1,'Futbol'),
 (2,'Basquetbol'),
 (3,'Beisbol'),
 (4,'Softbol'),
-(5,'Natación'),
+(5,'NataciÃ³n'),
 (6,'MMA'),
 (7,'Box'),
 (8,'Futbol'),

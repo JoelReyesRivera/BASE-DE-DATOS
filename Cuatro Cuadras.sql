@@ -1,10 +1,9 @@
 create database CuatroCuadrasBD
-use CuatroCuadrasBD
 
----drop database CuatroCuadrasBD
---use cacas
+--drop database CuatroCuadrasBD
+
 --TABLAS--
-
+use cacas
 
 SELECT
   *
@@ -65,7 +64,8 @@ CREATE TABLE [LUGAR]
 	[Latitud] smallint NOT NULL,
 	[Longitud] smallint NOT NULL,
 	[Descripcion] varchar (50) NOT NULL,
-	[ID-Categoria] smallint NOT NULL
+	[ID-Categoria] smallint NOT NULL,
+	id_ciudad smallint not null
 )
 ;
 
@@ -84,7 +84,9 @@ CREATE TABLE [USUARIO]
 	[Genero] bit NOT NULL,
 	[Email] varchar(50) NOT NULL,
 	[Contrasena] varchar(50) NOT NULL,
-	[Id-Ciudad] smallint NOT NULL
+	[Id-Ciudad] smallint NOT NULL,
+	edad int not null,
+
 )
 ;
 
@@ -135,7 +137,7 @@ ALTER TABLE [CHECK-IN]
  ADD CONSTRAINT [Unique-CheckIn] UNIQUE NONCLUSTERED ([ID-Usuario],[ID-Lugar],[Fecha y Hora])
 ;
 ALTER TABLE [LUGAR] 
- ADD CONSTRAINT [Unique-Ubicación] UNIQUE NONCLUSTERED ([Longitud],[Latitud])
+ ADD CONSTRAINT [Unique-Ubicaciï¿½n] UNIQUE NONCLUSTERED ([Longitud],[Latitud])
 
 ALTER TABLE [CIUDAD] 
  ADD CONSTRAINT [PK_CIUDAD]
@@ -164,6 +166,11 @@ CREATE INDEX [IXFK_LUGAR_CATEGORIA]
 ALTER TABLE [LUGAR] 
  ADD CONSTRAINT [PK_LUGAR]
 	PRIMARY KEY CLUSTERED ([ID])
+;
+
+ALTER TABLE [LUGAR] 
+ ADD CONSTRAINT [FK_CIUDA_LUGAR]
+	FOREIGN KEY (id_ciudad)  REFERENCES CIUDAD ([ID]) 
 ;
 
 CREATE INDEX [IXFK_LUGAR-ETIQUETA_ETIQUETA] 
