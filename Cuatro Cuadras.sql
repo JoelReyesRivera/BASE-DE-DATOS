@@ -14,14 +14,14 @@ GO
 
 CREATE TABLE CATEGORIA
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [CHECK-IN]
 (
-	[ID-Usuario] int NOT NULL,
+	[ID-Usuario] int,
 	[ID-Lugar] int NOT NULL,
 	[Comentario] varchar(50),
 	[Fecha y Hora] datetime NOT NULL,
@@ -31,28 +31,28 @@ CREATE TABLE [CHECK-IN]
 
 CREATE TABLE [CIUDAD]
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ESTATUS-SOLICITUD]
 (
-	[ID] tinyint IDENTITY(1,1) NOT NULL,
+	[ID] tinyint IDENTITY(1,1) ,
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ETIQUETA]
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [INSIGNIA]
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Nombre] varchar(50) NOT NULL,
 	[Descripcion] varchar(100) NOT NULL
 )
@@ -60,7 +60,7 @@ CREATE TABLE [INSIGNIA]
 
 CREATE TABLE [LUGAR]
 (
-	[ID] int IDENTITY(1,1) NOT NULL,
+	[ID] int IDENTITY(1,1),
 	[Latitud] smallint NOT NULL,
 	[Longitud] smallint NOT NULL,
 	[Descripcion] varchar (50) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE [LUGAR-ETIQUETA]
 
 CREATE TABLE [USUARIO]
 (
-	[ID] int IDENTITY(1,1) NOT NULL,
+	[ID] int IDENTITY(1,1),
 	[UserName] varchar(50) NOT NULL,
 	[Nombre] varchar(50) NOT NULL,
 	[Genero] bit NOT NULL,

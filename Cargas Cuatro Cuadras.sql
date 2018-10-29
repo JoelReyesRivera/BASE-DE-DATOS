@@ -1,4 +1,4 @@
--CARGAS CUATRO CUADRAS--
+--CARGAS CUATRO CUADRAS--
 
 use CuatroCuadrasBD
 
@@ -48,32 +48,32 @@ Values('Parque'),
 
 
 INSERT INTO LUGAR 
-VALUES (80,90,'Riberas',1),
-(-52,-35,'El Grito',2),
-(35,65,'Hambugería',3),
-(-1,82,'Banorte',4),
-(-10,50,'Altata',5),
-(43,32,'Cinepolis',6),
-(49,42,'Music Store',7),
-(36,82,'Photo Store',8),
-(-5,64,'Oficina Coppel',9),
-(-15,35,'C & A',10),
-(4,52,'Photo Shop',8),
-(65,12,'Photo Rally',8),
-(34,52,'Mazatlán Malecón',5),
-(-6,90,'Vallarta Malecón',5),
-(65,90,'Sushi Factory',3),
-(36,30,'Farm Burguer',3),
-(-5,14,'La café',3),
-(-5,-50,'Carls jr',3),
-(36,25,'Burguer King',3),
-(55,15,'Super salads',3),
-(73,36,'Kiwi',3),
-(31,38,'Salads Imbox',3),
-(90,13,'Maroma',3),
-(87, 45,'MixUp',7),
-(-6,70,'Las ermoxxas',10),
-(80,-45,'Paeque 87',1)
+VALUES (80,90,'Riberas',1,1),
+(-52,-35,'El Grito',2,3),
+(35,65,'Hambugería',3,4),
+(-1,82,'Banorte',4,6),
+(-10,50,'Altata',5,1),
+(43,32,'Cinepolis',6,3),
+(49,42,'Music Store',7,2),
+(36,82,'Photo Store',8,3),
+(-5,64,'Oficina Coppel',9,5),
+(-15,35,'C & A',10,10),
+(4,52,'Photo Shop',8,7),
+(65,12,'Photo Rally',8,6),
+(34,52,'Mazatlán Malecón',5,1),
+(-6,90,'Vallarta Malecón',5,2),
+(65,90,'Sushi Factory',3,7),
+(36,30,'Farm Burguer',3,3),
+(-5,14,'La café',3,8),
+(-5,-50,'Carls jr',3,9),
+(36,25,'Burguer King',3,4),
+(55,15,'Super salads',3,9),
+(73,36,'Kiwi',3,4),
+(31,38,'Salads Imbox',3,1),
+(90,13,'Maroma',3,9),
+(87, 45,'MixUp',7,10),
+(-6,70,'Las ermoxxas',10,5),
+(80,-45,'Parque 87',1,2)
 
 
 
@@ -293,13 +293,32 @@ VALUES ('Fotogenico','Hacer check-in en 3 lugares diferentes con etiqueta "photo
 
 INSERT INTO ETIQUETA
 VALUES	('PhotoBoot'),
-('Canoa')
+('Canoa'),
+('Comida'), 
+('Tripiante'),
+('Striptis'),
+('Playa'),
+('Caguamas'),
+('Tortugas'),
+('Música en vivo'),
+('Familiar')
+
 
 
 
 INSERT INTO [LUGAR-ETIQUETA]
 VALUES (8,1),
-(5,2)
+(5,2),
+(3,8),
+(1,1),
+(1,3),
+(2,6),
+(8,8),
+(2,3),
+(3,4),
+(6,9),
+(9,6)
+
 
 
 INSERT INTO [ESTATUS-SOLICITUD]
