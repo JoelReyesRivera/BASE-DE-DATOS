@@ -75,18 +75,17 @@ join [Lugar] l on ci.[ID-Lugar]=l.[ID]
 -----CONSULTAS NO TRIVIALES-----
 
 --1 Obtener lista de los lugares con las personas que los han visitado
+select l.Descripcion, users.UserName from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+group by l.Descripcion, users.UserName
  
 
---2 Obtener todas los usuarios que han visitado un mismo lugar que un amigo de ellos
-select friends.Usuario1 as amigo1, friends.Usuario2 as amigo2 , l.descripcion  from [check-in] ci1
-join Lugar l on ci1.[ID-Lugar]=l.ID
-join [USUARIO-AMIGO-USUARIO] friends on friends.Usuario1 = ci1.[ID-Usuario] or friends.Usuario2= ci1.[ID-Usuario]
+--2 Obtener todas los usuarios que han visitado un lugar y que tengan mas de 2 amigos
+
 
 
 select count(*) from [CHECK-IN] where [ID-Usuario]=2 and [ID-Lugar]=4
-
-
-
 
 
 --3 obtener todos los lugares con la etiqueta Canoa
@@ -180,16 +179,47 @@ group by l.Descripcion
 order by visitado desc
 
 --15 Obtener el promedio de la valoracion de todos los lugares 
+select l.descripcion as lugar, sum(ci.valoracion) as suma ,count(*) as votados,avg(ci.Valoracion) as promedio from [CHECK-IN] ci
+join [LUGAR] l on l.ID= ci.[ID-Lugar]
+group by l.Descripcion
 
---16 Obtener a los usuarios que han valorado un lugar con 0 de valoracion
+--16 Obtener a los usuarios que han valorado un lugar con 0 de valoracion y mostrar cuantas veces han valorado con 0
+select users.UserName as usuario, count (*) as [Valorados en 0] from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+where ci.Valoracion = 0
+group by users.UserName
 
---17 Obtener el lugar que más frecuentan las mujeres
+--17 Obtener el lugar que más frecuentan las mujeres con el número de visitas
+select top 1 l.Descripcion as Lugar, count (*) as Visitas from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+where users.Genero = 0
+group by l.Descripcion 
+order by Visitas desc
 
 --18 Obtener el lugar que más frecuentan los hombre o las mujeres mayores de 18
+select top 1 l.Descripcion as Lugar, count (*) as Visitas from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+where users.Genero = 1 or (users.Genero = 0 AND users.edad > 18) 
+group by l.Descripcion 
+order by Visitas desc
 
---19 Obtener a los usuarios que han visitado más de 2 ciudades en el último mes
+--19 Obtener a los usuarios que han visitado más de 2 veces una ciudad
+select distinct users.UserName, c.Descripcion as ciudad, count (*) as Visitados from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+join Ciudad c on c.ID= l.id_ciudad
+group by users.UserName ,c.Descripcion
+having (count(c.Descripcion)>2)
+
 
 --20 Obtener lugares que tienen como comentario 'Muy bueno' (like %Muy bueno%) pero que no tenga 'Muy malo' ni 'Malo'
+select l.Descripcion from [CHECK-IN] ci
+join LUGAR l on l.ID = ci.[ID-Lugar]
+where ci.Comentario like '%Muy bueno%' 
+	and ci.[ID-Lugar] not in (select distinct ci.[ID-Lugar] from [CHECK-IN] ci 
+								where ci.Comentario like '%Muy malo%' or ci.Comentario like '%Malo%')
 
 
 --14 Obtener todos los usuarios que han obtenido una insignia con un check in de otra ciudad
