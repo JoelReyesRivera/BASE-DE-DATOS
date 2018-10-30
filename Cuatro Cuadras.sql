@@ -82,11 +82,10 @@ CREATE TABLE [USUARIO]
 	[UserName] varchar(50) NOT NULL,
 	[Nombre] varchar(50) NOT NULL,
 	[Genero] bit NOT NULL,
+	edad int not null,
 	[Email] varchar(50) NOT NULL,
 	[Contrasena] varchar(50) NOT NULL,
-	[Id-Ciudad] smallint NOT NULL,
-	edad int not null,
-
+	[Id-Ciudad] smallint NOT NULL
 )
 ;
 
