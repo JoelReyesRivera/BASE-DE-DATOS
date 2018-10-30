@@ -3,7 +3,7 @@ create database CuatroCuadrasBD
 --drop database CuatroCuadrasBD
 
 --TABLAS--
-use cacas
+
 
 SELECT
   *

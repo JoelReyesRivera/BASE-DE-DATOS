@@ -30,6 +30,7 @@ VALUES ('Joselito','Joel',1, 19, 'jreyes1999@hotmail.com','joel08',1),
 ('CrazyJCF','Jorge',0,19,'jorfeCfelix@hotmail.com','jorgeChivas',4),
 ('Wonguito','Ricardo',0, 22,'ricardowong@hotmail.com','arjona27',5)
 
+
  select * from USUARIO
 
 
@@ -74,7 +75,7 @@ VALUES (80,90,'Riberas',1,1),
 (87, 45,'MixUp',7,10),
 (-6,70,'Las ermoxxas',10,5),
 (80,-45,'Parque 87',1,2)
-
+select * from LUGAR
 
 
 
@@ -290,6 +291,8 @@ VALUES ('Fotogenico','Hacer check-in en 3 lugares diferentes con etiqueta "photo
 ('Catador De Comida','Hacer 10 check-ins en restaurantes diferentes'),
 ('Trabajador','Hacer 200 check-ins en lugares de la categoría "Oficinas"')
 
+select * from INSIGNIA
+
 
 INSERT INTO ETIQUETA
 VALUES	('PhotoBoot'),
@@ -303,11 +306,13 @@ VALUES	('PhotoBoot'),
 ('Música en vivo'),
 ('Familiar')
 
+select * from [LUGAR-ETIQUETA]
 
 
 
 INSERT INTO [LUGAR-ETIQUETA]
-VALUES (8,1),
+VALUES (9,8),
+(8,1),
 (5,2),
 (3,8),
 (1,1),
@@ -318,6 +323,7 @@ VALUES (8,1),
 (3,4),
 (6,9),
 (9,6)
+
 
 
 
@@ -365,6 +371,16 @@ VALUES (1,'Futbol'),
 (9,'Box'),
 (10,'Beisbol')
 
+
+ 
+insert into [USUARIO-INSIGNIA]
+values (10,5, '2018-10-20'),
+(5,5, '2018-10-21'),
+(1,6, '2018-10-20'),
+ (2,6, '2018-09-20'),
+ (3,6, '2018-10-15'),
+ (7,4, '2018-10-13'),
+ (9,4, '2018-10-12'),
 
 
 

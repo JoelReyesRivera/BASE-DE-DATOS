@@ -1,73 +1,147 @@
 ------Consultas Cuatro Cuadras------------
 
+
+
 -----CONSULTAS TRIVIALES-----
 
 ----1 Obtener la suma de los usuairo Mujeres de los usuarios
-
 select count(*) 
 from [USUARIO] where [Genero] = 0
 
---2 Obtener todos los usuarios de la CDMX
-select [] from USUARIO
+--2 Obtener todos los usuarios de Culiacan
+select users.UserName from USUARIO users 
+where users.[Id-Ciudad]=1
 
 --3 Obtener todos los lugares de Parral
+select l.Descripcion, l.id_ciudad from LUGAR l
+where l.id_ciudad = 6
 
 --4 Obtener todas las solicitudes pendientes
+select usu.Usuario1, usu.Usuario2, usu.Estatus as Estatus from [USUARIO-SOLICITUD-USUARIO] usu
+where usu.Estatus = 3
 
---5 Obtener todas las reviews con etiqueta 'Muy malo'
+--5 Obtener todas las reviews 'Muy malo'
+select ci.[ID-Lugar], ci.Comentario  from  [CHECK-IN] ci
+where ci.Comentario like '%Muy malo%' 
 
---6 Obtener a todos los usuarios que tienen la insignia 'Catador de Comida'
+--6 Obtener el id, nonbre y username de las personas  que tienen la insignia 'Catador de Comida'
+select users.ID, users.Nombre, users.UserName from [USUARIO-INSIGNIA] ui
+join USUARIO users on users.ID = ui.[ID-Usuario]
+where ui.[ID-Insignia] = 6
 
 --7 Obtener todas las solicitudes rechazadas
+select usu.Usuario1, usu.Usuario2, usu.Estatus as Estatus from [USUARIO-SOLICITUD-USUARIO] usu
+where usu.Estatus = 2
 
---8 Obtener los usuarios que tengan como amigo a 'joelito'
+--8 Obtener los checkin 'Joselito'
+select distinct users.Nombre, l.Descripcion from [CHECK-IN] ci
+join USUARIO users on users.ID =ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+where ci.[ID-Usuario] = 1
 
 --9 Obtener el nombre de los usuarios que hayan hecho check-in en 'Farm Burger'
+select users.Nombre as usuario from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+where ci.[ID-Lugar] = 16
 
 --10 Obtener Usuarios que sean de Mazatlán
+select users.UserName from USUARIO users 
+where users.[Id-Ciudad]=4
 
---11 Obtener amigos que tengan la misma edad
+--11 Obtener usuarios que hayan hecho chekin en las riberas  y que lo haya calificado con 4   
+select users.UserName  from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+where ci.[ID-Lugar] = 1  and ci.Valoracion = 4
 
 --12 Obtener el promedio de edad de todos los usuarios
+select AVG(users.edad) from USUARIO users
 
 --13 Obtener los lugares con la etiqueta 'Playa'
+select l.Descripcion from [LUGAR-ETIQUETA] lg
+join LUGAR l on l.ID = lg.[ID-Lugar]
+where lg.[ID-Etiqueta] = 6
 
 --14 Obtener usuarios con insignia 'Melomano'
+select users.UserName from [USUARIO-INSIGNIA] ui
+join USUARIO users on users.ID = ui.[ID-Usuario]
+where ui.[ID-Insignia] = 4
 
 --15 Obtener usuarios que su edad es menor a 20 anos
+select users.UserName  from USUARIO users
+where users.edad <= 20 
 
 --16 Obtener usuarios que han valorado con 4
+select users.UserName from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+where ci.Valoracion = 4
 
---17 Obtener las etiquetas de los lugares de la categoria 'Restaurant'
+--17 Obtener el nombe de los lugares con la categoria 'Restaurant'
+select l.Descripcion  from LUGAR l
+where l.[ID-Categoria] = 3
 
---18 Obtener los lugares de las ciudades
+--18 Obtener los lugares de las ciudad de Culacan 
+select l.Descripcion from LUGAR l
+where l.id_ciudad = 1
 
 --19 Obtener los usuarios con el interés en 'Beisbol'
+select users.UserName, ui.Interes as interes from [USUARIO-INTERESES] ui
+join USUARIO users on users.ID = ui.[ID-Usuario]
+where ui.Interes like '%Beisbol%' 
 
 --20 Obtener todos los usuarios que han visitado 'Burguer King' o 'Kiwi' o 'MixUp'
+select distinct users.username as usuario, l.Descripcion as lugar from [CHECK-IN] ci
+join USUARIO users on ci.[ID-Usuario]= users.ID
+join LUGAR l on ci.[ID-Lugar]= l.ID
+where l.Descripcion='Burguer King' or l.Descripcion='Kiwi' or l.Descripcion='MixUp'
 
 --21 Obtener usuarios de 'Culiacan' y 'Navolato'
+select users.UserName from USUARIO users
+where users.[Id-Ciudad] = 1 or users.[Id-Ciudad] = 2
 
---22 Obtener el promedio de lugares visitados por usuario
+--22 Obtener los  lugares visitados por usuario 3 y sus numeros de visitas
+select l.Descripcion, COUNT(*) visitas from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+where users.ID = 3
+group by l.Descripcion
 
 --23 Obtener el promedio de edades
+select AVG(users.edad) as edad from USUARIO users
 
 --24 Obtener numero de visitas de todos los lugares (Checar)
-select l.[Descripcion], count(*) from [CHECK-IN] ci
+select l.[Descripcion], count(*)  as Visitas from [CHECK-IN] ci
 join [Lugar] l on ci.[ID-Lugar]=l.[ID]
+group by l.Descripcion
 
 --25 Obtener todas las fechas y hora de todos los check in hechos
+select l.Descripcion, ci.[Fecha y Hora] from [CHECK-IN] ci
+join LUGAR l on l.ID = ci.[ID-Lugar]
 
---26 Obtener el usuario con el mayor numero de amigos
+--26 Obtener nombres de usuarios con interes en  Futbol y Beisbol
+select  users.Nombre from [USUARIO-INTERESES] ui
+join USUARIO users on users.ID = ui.[ID-Usuario]
+where ui.Interes like '%Futbol%' or ui.Interes like '%Beisbol%'
 
---27 Obtener la ciudad con más lugares registrados
+--27 Obtener los checkin del usuario 5
+select l.Descripcion from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join LUGAR l on l.ID = ci.[ID-Lugar]
+where users.ID = 3
 
---28 Obtener la ciudad con más lugares con etiqueta 'Tortugas'
+--28 Obtener lugares con etiqueta 'Tortugas'
+select l.Descripcion from  [LUGAR-ETIQUETA] le
+join LUGAR l on l.ID = le.[ID-Lugar]
+where le.[ID-Etiqueta] = 8
 
---29 Obtener el promedio de numero de personas por ciudad
-
---30 Obtener la ciudad que más usuarios tienen la insginia 'Cinéfilo'
-
+--29 Obtener los comentarios y el nombre de usuarios,  su edad de los checkin con valoracion en 0
+select distinct  users.Nombre, users.edad, ci.Comentario, ci.Valoracion from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+where ci.Valoracion = 0
+--30 Obtener las personas  y la ciudad en la que pertenecen que tienen la insginia 'Cinéfilo'
+select users.Nombre, c.Descripcion from [USUARIO-INSIGNIA] ui
+join USUARIO users on users.ID = ui.[ID-Usuario]
+join CIUDAD c on c.ID =users.[Id-Ciudad]
+where ui.[ID-Insignia]=5
 
 
 
@@ -81,12 +155,12 @@ join LUGAR l on l.ID = ci.[ID-Lugar]
 group by l.Descripcion, users.UserName
  
 
---2 Obtener todas los usuarios que han visitado un lugar y que tengan mas de 2 amigos
-
-
-
-select count(*) from [CHECK-IN] where [ID-Usuario]=2 and [ID-Lugar]=4
-
+--2 Obtener todas los usuarios que han visitado un lugar con la etiqueta 'PhotoBoot'
+select distinct users.Nombre
+ from [CHECK-IN] ci
+join USUARIO users on users.ID = ci.[ID-Usuario]
+join [LUGAR-ETIQUETA] le on le.[ID-Lugar] = ci.[ID-Lugar]
+where le.[ID-Etiqueta] = 1
 
 --3 obtener todos los lugares con la etiqueta Canoa
 select l.[Descripcion] from LUGAR l
@@ -221,5 +295,3 @@ where ci.Comentario like '%Muy bueno%'
 	and ci.[ID-Lugar] not in (select distinct ci.[ID-Lugar] from [CHECK-IN] ci 
 								where ci.Comentario like '%Muy malo%' or ci.Comentario like '%Malo%')
 
-
---14 Obtener todos los usuarios que han obtenido una insignia con un check in de otra ciudad
