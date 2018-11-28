@@ -1,4 +1,5 @@
-# Base de datos :boy:  :girl: 
+# Base de datos: Bichos y Cuatra Cuadras
+:boy:  :girl: 
 ### Proyecto de taller de base de datos
 
 - Angulo Quiñonez Kelly Anahí | 16171282 | Ing. En Sistemas Computacionales  :turtle:
