@@ -3,7 +3,7 @@ create database CuatroCuadrasBD
 --drop database CuatroCuadrasBD
 
 --TABLAS--
-
+use CuatroCuadrasBD
 
 SELECT
   *
@@ -136,7 +136,7 @@ ALTER TABLE [CHECK-IN]
  ADD CONSTRAINT [Unique-CheckIn] UNIQUE NONCLUSTERED ([ID-Usuario],[ID-Lugar],[Fecha y Hora])
 ;
 ALTER TABLE [LUGAR] 
- ADD CONSTRAINT [Unique-Ubicaci�n] UNIQUE NONCLUSTERED ([Longitud],[Latitud])
+ ADD CONSTRAINT [Unique-Ubicacion] UNIQUE NONCLUSTERED ([Longitud],[Latitud])
 
 ALTER TABLE [CIUDAD] 
  ADD CONSTRAINT [PK_CIUDAD]

@@ -19,7 +19,7 @@ VALUES ('Culiacán'),
 
 
 INSERT INTO USUARIO
-VALUES ('Joselito','Joel',1, 19, 'jreyes1999@hotmail.com','joel08',1),
+VALUES ('Joselito','Joel',1, 19,'jreyes1999@hotmail.com','joel08',1),
 ('BryanReRi','Bryan',1,18,'breyes2003@hotmail.com','bryan09',2),
 ('KariRe','Karime',0,17,'karireyes@hotmail.com','kari07',3),
 ('JuanPe','Juan',1,19,'juanperes@hotmail.com','jaunpa',4),
