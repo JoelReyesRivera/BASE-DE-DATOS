@@ -1,10 +1,9 @@
 create database CuatroCuadrasBD
-use CuatroCuadrasBD
 
----drop database CuatroCuadrasBD
---use cacas
+--drop database CuatroCuadrasBD
+
 --TABLAS--
-
+use CuatroCuadrasBD
 
 SELECT
   *
@@ -15,14 +14,14 @@ GO
 
 CREATE TABLE CATEGORIA
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [CHECK-IN]
 (
-	[ID-Usuario] int NOT NULL,
+	[ID-Usuario] int,
 	[ID-Lugar] int NOT NULL,
 	[Comentario] varchar(50),
 	[Fecha y Hora] datetime NOT NULL,
@@ -32,28 +31,28 @@ CREATE TABLE [CHECK-IN]
 
 CREATE TABLE [CIUDAD]
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ESTATUS-SOLICITUD]
 (
-	[ID] tinyint IDENTITY(1,1) NOT NULL,
+	[ID] tinyint IDENTITY(1,1) ,
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [ETIQUETA]
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Descripcion] varchar(50) NOT NULL
 )
 ;
 
 CREATE TABLE [INSIGNIA]
 (
-	[ID] smallint IDENTITY(1,1) NOT NULL,
+	[ID] smallint IDENTITY(1,1),
 	[Nombre] varchar(50) NOT NULL,
 	[Descripcion] varchar(100) NOT NULL
 )
@@ -61,11 +60,12 @@ CREATE TABLE [INSIGNIA]
 
 CREATE TABLE [LUGAR]
 (
-	[ID] int IDENTITY(1,1) NOT NULL,
+	[ID] int IDENTITY(1,1),
 	[Latitud] smallint NOT NULL,
 	[Longitud] smallint NOT NULL,
 	[Descripcion] varchar (50) NOT NULL,
-	[ID-Categoria] smallint NOT NULL
+	[ID-Categoria] smallint NOT NULL,
+	id_ciudad smallint not null
 )
 ;
 
@@ -78,10 +78,11 @@ CREATE TABLE [LUGAR-ETIQUETA]
 
 CREATE TABLE [USUARIO]
 (
-	[ID] int IDENTITY(1,1) NOT NULL,
+	[ID] int IDENTITY(1,1),
 	[UserName] varchar(50) NOT NULL,
 	[Nombre] varchar(50) NOT NULL,
 	[Genero] bit NOT NULL,
+	edad int not null,
 	[Email] varchar(50) NOT NULL,
 	[Contrasena] varchar(50) NOT NULL,
 	[Id-Ciudad] smallint NOT NULL
@@ -135,7 +136,7 @@ ALTER TABLE [CHECK-IN]
  ADD CONSTRAINT [Unique-CheckIn] UNIQUE NONCLUSTERED ([ID-Usuario],[ID-Lugar],[Fecha y Hora])
 ;
 ALTER TABLE [LUGAR] 
- ADD CONSTRAINT [Unique-Ubicación] UNIQUE NONCLUSTERED ([Longitud],[Latitud])
+ ADD CONSTRAINT [Unique-Ubicacion] UNIQUE NONCLUSTERED ([Longitud],[Latitud])
 
 ALTER TABLE [CIUDAD] 
  ADD CONSTRAINT [PK_CIUDAD]
@@ -164,6 +165,11 @@ CREATE INDEX [IXFK_LUGAR_CATEGORIA]
 ALTER TABLE [LUGAR] 
  ADD CONSTRAINT [PK_LUGAR]
 	PRIMARY KEY CLUSTERED ([ID])
+;
+
+ALTER TABLE [LUGAR] 
+ ADD CONSTRAINT [FK_CIUDA_LUGAR]
+	FOREIGN KEY (id_ciudad)  REFERENCES CIUDAD ([ID]) 
 ;
 
 CREATE INDEX [IXFK_LUGAR-ETIQUETA_ETIQUETA] 
