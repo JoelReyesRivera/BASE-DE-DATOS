@@ -1,4 +1,4 @@
-create database CuatroCuadrasBD
+--create database CuatroCuadrasBD
 
 --drop database CuatroCuadrasBD
 

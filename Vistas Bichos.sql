@@ -34,7 +34,8 @@ GO
 
 --VISTA EVOLUCION
 create view Evoluciones
-as 
+as SELECT ES.ID as [ID-Especie],ES.Nombre AS Especie,ES2.ID as [ID-Evolcuion],ES2.Nombre as Evolucion,E.ExperenciaNecesaria FROM EVOLUCION E INNER JOIN ESPECIE ES ON E.[ID-Especie]= ES.ID
+INNER JOIN ESPECIE ES2 ON ES2.ID=E.Evolución
 
 GO
 SELECT * FROM BichoAtaques
@@ -42,10 +43,12 @@ GO
 
 --INFORMACION ESPECIE
 create view EspecieInfo
-as SELECT * FROM ESPECIE e 
+as SELECT E.ID,E.Nombre,E.Ataque,E.SaludMax,T.Descripción,TB.Descripción as Debilidad,TB2.Descripción as Fortaleza from ESPECIE e 
 INNER JOIN TIPOBICHO t ON e.Tipo=t.ID
 INNER JOIN [TIPO-DEBILIDAD] d ON d.[Id-Tipo]=t.ID
 INNER JOIN [TIPO-FORTALEZA] f ON f.[Id-Tipo]=t.ID
+INNER JOIN TIPOBICHO TB ON d.[Id-Tipo-Debilidad]=TB.ID
+INNER JOIN TIPOBICHO TB2 ON f.[Id-Tipo-Fortaleza]=TB2.ID
 
 
 GO
